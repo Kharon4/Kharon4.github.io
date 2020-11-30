@@ -13,7 +13,7 @@ function EducationModel(fontGeo){
         mesh = new THREE.Mesh(new THREE.CylinderGeometry(0.01,0.01,height,8,8),hlMat);
         mesh.rotation.y = -Math.PI/4;
         mesh.rotation.z = Math.PI/2;
-        mesh.position.set(-height/2,0,-height/2);
+        mesh.position.set(-height/2,0.005,-height/2);
         gCap.add(mesh);
         mesh = new THREE.Mesh(new THREE.CylinderGeometry(0.01,0.01,0.15,8,8),hlMat);
         mesh.position.set(-0.25,-0.075,-0.25);
@@ -48,7 +48,7 @@ function EducationModel(fontGeo){
     }
 
     model.updateAction=()=>{
-        model.rotation.y += 0.01
+        model.rotation.y -= 0.01
     }
     return model;
 }

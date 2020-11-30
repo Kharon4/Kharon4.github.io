@@ -51,7 +51,7 @@ function Monitor(fontGeo){
             return string;
         }
         const str = [
-            " [VERSION 10.0.19041.630]",
+            " [VERSION 10.7.20911.847]",
             " (C) 2020. ALL RIGHTS RESERVED.",
             " C:\\USERS\\ABHISHEKKHURANA> START TESTPROJECT",
             " HELLO WORLD !!!",

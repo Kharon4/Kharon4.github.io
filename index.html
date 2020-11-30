@@ -14,7 +14,7 @@
         </div>
         <div id="navOptions">
             <ul>
-                <a href='#secContact'><li class='menItem'>Contact Me</li></a>
+                <a href='#secContact'><li class='menItem'>ContactMe</li></a>
                 <a href='#secSkills'><li class='menItem'>Skills</li></a>
                 <a href='#secEducation'><li class='menItem'>Education</li></a>
                 <a href='#secAbout'><li class='menItem'>About</li></a>
@@ -26,7 +26,7 @@
         <div class="sec">
             <div class="paraB">
                 <h1>
-                    Hello World !!!
+                    Hello World
                 </h1>
                 <h3>
                     I’m Abhishek Khurana,<br>
@@ -59,22 +59,52 @@
         <div class="inv sec">
             <div class="paraW">
                 <h1>Skills</h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit mollitia delectus quod reiciendis ipsa ipsam explicabo adipisci perferendis error quae corporis fugit omnis maiores minus, magnam voluptatem provident iste recusandae fugiat ut unde, vel culpa. Temporibus quos, facere hic velit quis alias commodi modi perferendis iusto, qui ea dolorem eaque debitis obcaecati aliquid blanditiis minima maxime aut ex provident tempora, cupiditate voluptatibus placeat ut! Doloremque, autem a aspernatur ut optio dolorum nihil modi, sunt natus tenetur sequi quos. Labore quaerat similique nihil nobis reprehenderit, eum dicta enim est accusamus quod iusto, sed distinctio corporis quam necessitatibus aut saepe. Praesentium, ipsum.
-            
+                <strong>Languages I speak:</strong><br>
+                C C++ C# JS HTML CSS
+                <br><br>
+                <strong>Technologies, Libs and Tools I use:</strong><br>
+                Node.js MongoDB WebRTC Socket.IO jQuery Three.js Electron Git GitHub CUDA Win32API GDI+ OpenCV
             </div>
         </div>
         <a id='secContact'></a>
         <div class="sec">
             <div class="paraB">
                 <h1>Contact Me</h1>
-                <form action="" method="post">
-                    <input type="text" name="Name" id="" placeholder="Name">
+                <form id='contactForm'>
+                    <input type="text" id="nameField" name="Name" placeholder="Name (or stay anonymous)">
+                    <div id="formStage2">
+                        How do u know me ?<br>
+                        <label class="container">
+                        <input type="checkbox" name="BITS" id="bitsField"> BITS<br>
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container">
+                        <input type="checkbox" name="FIITJEE" id="fiitjeeField"> FIITJEE<br>
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container">
+                        <input type="checkbox" name="KRM" id="krmField"> KRM<br>
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container">
+                        <input type="checkbox" name="GBS" id="gbsField"> GBS<br>
+                        <span class="checkmark"></span>
+                        </label>
+                        <input type="text" name="Other"  placeholder="Other" id="otherField">
+                    </div>
+                    <input type="text" name="comments"  placeholder="Comments" id="commentsField">
+                    <input type="submit" value="" style="display: none;" id="sButton"/>
+                    
                 </form>
+                <div id="thnxField">
+                    Thanks I have recieved Ur msg and will get back to U asap.
+                </div>
             </div>
         </div>
         <footer>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis facere vel, excepturi delectus consectetur suscipit quidem voluptatibus reiciendis tenetur ratione, eaque expedita magni adipisci earum optio? Saepe molestias adipisci corrupti dolores iste animi reiciendis non quod nesciunt totam a at fugit eius possimus illum numquam officiis, similique cumque consequuntur? In voluptatum sed a nisi dolores, vitae quia minus excepturi tempora et sequi placeat provident blanditiis ab saepe sunt temporibus expedita dolorum quaerat facere exercitationem labore libero alias reiciendis? Assumenda ipsum iste inventore cumque blanditiis. Quisquam, asperiores? Quisquam officiis consectetur quae fuga esse quasi saepe. Sequi illum explicabo ipsum porro quis.
         </footer>
+    <script src='./src/js/formHandler.js'></script>
     <script type='module' src="./src/js/index.js"></script>
 </body>
 </html>
