@@ -166,3 +166,22 @@ h3{
   ::-webkit-scrollbar-thumb:hover {
     background: #b30000; 
   }
+
+
+  /* form */
+  input[type=text] {
+    height:2rem;
+    font-size: 1rem;
+    background: none;
+    border: none;
+    border-bottom: 2px solid lightgrey;
+    color:var(--col);
+    width:30%;
+    transition: width 0.4s ease-in-out;
+  }
+
+  input[type=text]:focus {
+    width: 100%;
+    border-bottom: 2px solid white;
+    outline: none;
+  }

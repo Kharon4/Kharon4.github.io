@@ -50,6 +50,8 @@ const generateTextGeo = (callBack)=>{
 import {Monitor} from './models/monitor.js';
 import {KeyBoard} from './models/keyboard.js';
 import {SelectionBox} from './models/selectionBox.js'
+import {AboutModel} from './models/aboutModel.js';
+import {EducationModel} from './models/educationModel.js';
 const generateScene = (fontGeo)=>{
     let rVal = [];
 
@@ -68,8 +70,20 @@ const generateScene = (fontGeo)=>{
 
     //Selection box
     let selectBox = SelectionBox();
-    selectBox.position.set(0,-3,0);
+    selectBox.position.set(0,-2,0);
     rVal.push(selectBox);
+    
+    //about model
+    let aboutModel = AboutModel(fontGeo);
+    aboutModel.position.set(0,-2,0);
+    rVal.push(aboutModel);
+
+    let eduModel = EducationModel(fontGeo);
+    eduModel.position.set(1,-4.1,0);
+    // eduModel.rotation.y = -Math.PI/10;
+    rVal.push(eduModel);
+
+
 
     return rVal;
 }
