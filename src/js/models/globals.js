@@ -13,4 +13,10 @@ const greyMat = new THREE.MeshBasicMaterial({color:grey});
 
 const noSections = document.getElementsByClassName('sec').length;
 
-export {THREE,compCols,highLightCol,grey,whiteMat,blackMat,greyMat,hlMat,noSections};
+let textures = [
+    new THREE.TextureLoader().load( './src/images/BITS.jpg' ),
+    new THREE.TextureLoader().load( './src/images/KRM.jpg' )
+];
+
+
+export {THREE,compCols,highLightCol,grey,whiteMat,blackMat,greyMat,hlMat,noSections,textures};
