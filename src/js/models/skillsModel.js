@@ -44,11 +44,6 @@ function SkillsModel(){
 
 
     model.updateAction=(mouse)=>{
-        for(let i = 0 ; i < model.children.length ; ++i){
-            if(model.children[i].updateAction != undefined){
-                model.children[i].updateAction();
-            }
-        }
         let pg = mouse.fraction*(noSections-1);
         let sc;
         if(pg<2.5)sc = 0;

@@ -21,10 +21,10 @@ function AboutModel(fontGeo){
             }
             return string;
         }
-        // let strs = ['GIT','GITHUB','JAVASCRIPT','NODEJS','THREEJS','ELECTRON','MONGODB','REACT','MERN','C++','C','CUDA'];
+        let mainGrp = new THREE.Group();
         let strs = ['PHYSICS','MATH','PROGRAMMING','ELECTRONICS','COMPUTERS'];
         const maxSpeed = 0.03;
-        for(let i = 0 ; i < strs.length*8 ; ++i){
+        for(let i = 0 ; i < strs.length*6 ; ++i){
             let str = makeStr(strs[i%strs.length],hlMat);
             let grp = new THREE.Group();
             grp.add(str);
@@ -32,21 +32,27 @@ function AboutModel(fontGeo){
             grp.RP.x*=maxSpeed;
             grp.RP.y*=maxSpeed;
             grp.RP.z*=maxSpeed;
-            grp.updateAction = (mouse)=>{
-                let page = mouse.fraction*(noSections-1);
-                let sc;
-                sc = 3-page*2;
-                if(sc > 1)sc=1;
-                if(sc<0){sc = 0;grp.visible=false;}
-                else grp.visible=true;
-                grp.scale.set(sc,sc,sc);
+            grp.updateAction = ()=>{
                 grp.rotation.x += grp.RP.x;
                 grp.rotation.y += grp.RP.y;
-                // grp.rotation.z += grp.RP.z;
             }
-            str.position.set(0.5,0,0);
-            model.add(grp);
+            str.position.set(0.4,0,0);
+            mainGrp.add(grp);
         }
+
+        mainGrp.updateAction = (mouse)=>{
+            let page = mouse.fraction*(noSections-1);
+            let sc;
+            sc = 3-page*2;
+            if(sc > 1)sc=1;
+            if(sc<0){sc = 0;mainGrp.visible=false;}
+            else mainGrp.visible=true;
+            mainGrp.scale.set(sc,sc,sc);
+            for(let i = 0 ; i < mainGrp.children.length ; ++i){
+                mainGrp.children[i].updateAction();
+            }
+        }
+        model.add(mainGrp);
     }
     model.updateAction=(mouse)=>{
         for(let i = 0 ; i < model.children.length ; ++i){

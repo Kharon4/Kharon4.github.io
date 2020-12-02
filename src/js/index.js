@@ -247,10 +247,7 @@ function renderer(meshArr,staticMesh){
 
     this.animate = ()=>{
         requestAnimationFrame( this.animate );
-        this.mouse.scroll = document.documentElement.scrollTop || document.body.scrollTop;
-        this.mouse.fraction = this.mouse.scroll/((noSections-1)*window.innerHeight);
-        this.updateNavEle();
-        this.updateCamPos();
+        
         for(let i = 0 ; i < meshArr.length ; ++i){
             if(meshArr[i].updateAction != undefined)meshArr[i].updateAction(this.mouse,this.camOffset);
         }
@@ -265,18 +262,27 @@ function renderer(meshArr,staticMesh){
 
     this.updateMousePos = (e)=>{
         this.mouse.x = ( e.clientX / window.innerWidth ) * 2 - 1;
-	    this.mouse.y = -( e.clientY / window.innerHeight ) * 2 + 1;
+        this.mouse.y = -( e.clientY / window.innerHeight ) * 2 + 1;
+        this.updateCamPos();
     }
 
     this.updateTouchPos = (e)=>{
-        let lastTouch =e.changedTouches[e.changedTouches.length-1]; 
-        console.log(lastTouch);
+        let lastTouch =e.changedTouches[e.changedTouches.length-1];
         this.mouse.x = ( lastTouch.pageX / window.innerWidth ) * 2 - 1
-        //this.mouse.y = ( lastTouch.pageY / window.innerWidth ) * 2 - 1;
+        this.updateCamPos();
     }
     window.addEventListener( 'mousemove', this.updateMousePos, false );
     window.addEventListener('touchmove',this.updateTouchPos,false);
     
+    window.addEventListener('scroll',()=>{
+        this.mouse.scroll = document.documentElement.scrollTop || document.body.scrollTop;
+        this.mouse.fraction = this.mouse.scroll/((noSections-1)*window.innerHeight);
+        this.updateNavEle();
+        this.updateCamPos();
+    });
+
+    this.updateCamPos();
+
     return this;
 }
 

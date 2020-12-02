@@ -7,7 +7,7 @@ const scrollTo= (dest,up)=>{
     if(up){
         window.scrollTo(0,scroll-rate);
         if(scroll-rate > dest){
-            setTimeout(scrollTo,0,dest,up);
+            setTimeout(scrollTo,10,dest,up);
         }else{
             window.scrollTo(0,dest);
             listnerEnable = true;
@@ -15,7 +15,7 @@ const scrollTo= (dest,up)=>{
     }else{
         window.scrollTo(0,scroll+rate);
         if(scroll+rate < dest){
-            setTimeout(scrollTo,0,dest,up);
+            setTimeout(scrollTo,10,dest,up);
         }else{
             window.scrollTo(0,dest);
             listnerEnable = true;
@@ -28,11 +28,11 @@ window.addEventListener("scroll", ()=>{
         let scroll = document.documentElement.scrollTop || document.body.scrollTop;
         let page = scroll/(window.innerHeight);
         let diff = page - Math.round(page);
-        if(diff > 0.15){
+        if(diff > 0.1){
             listnerEnable = false;
             scrollTo((Math.round(page)+1)*window.innerHeight,false);
         }
-        if(diff <-0.15){
+        if(diff <-0.1){
             listnerEnable = false;
             scrollTo((Math.round(page)-1)*window.innerHeight,true);
         }

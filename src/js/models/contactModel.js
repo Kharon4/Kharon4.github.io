@@ -68,12 +68,8 @@ function ContactModel(fontGeo){
                 pObj.updateAction = (mouse)=>{
                     pObj.sc += pObj.sspeed;
                     if(pObj.sc > 3)pObj.sc=0;
-                    let page = mouse.fraction * (noSections-1);
-                    let scF = 2*page-7;
-                    if(page < 3.5)scF = 0;
-                    if(page > 4)scF = 1;
                      
-                    pObj.scale.z = pObj.sc *scF;
+                    pObj.scale.z = pObj.sc;
                 }
                 model.add(pObj);
             }
@@ -81,6 +77,11 @@ function ContactModel(fontGeo){
     }
 
     model.updateAction= (mouse)=>{
+        let page = mouse.fraction * (noSections-1);
+        let scF = 2*page-7;
+        if(page < 3.5)scF = 0;
+        if(page > 4)scF = 1;
+        model.scale.z = scF;
         for(let i = 0 ; i < model.children.length;++i){
             if(model.children[i].updateAction != undefined){
                 model.children[i].updateAction(mouse);
