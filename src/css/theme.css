@@ -149,6 +149,10 @@ h3{
     font-weight: normal;
 }
 
+.menItem{
+  cursor: pointer;
+}
+
 /* scroll bar */
 /* width */
 ::-webkit-scrollbar {

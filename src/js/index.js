@@ -108,7 +108,7 @@ const generateBackGround = ()=>{
 
     //white screens
     const whitePannels = [1,3];
-    const heightOfPannel = 0.2;
+    const heightOfPannel = 0.22;
     for(let i = 0 ; i < whitePannels.length ; ++i){
         {
             let geo = new THREE.PlaneGeometry(100,heightOfPannel);
