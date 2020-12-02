@@ -38,7 +38,38 @@ function changeFormState(){
         fieldSecs[state].style.display="block";
         fieldSecs[state].disabled = false;
     }
-    else fieldSecs[3].style.display="block";
+    else {
+        fieldSecs[3].style.display="block";
+        let url = `https://docs.google.com/forms/d/e/1FAIpQLScnCgWhzznfVSQlm8d7BI2T5gdN6gy-JdhKnqm5eOXy-vrZGA/formResponse?usp=pp_url&entry.2005620554=`;
+        url += encodeURI(data.name);
+        if(data.bits){
+            url += '&entry.1087145370=BITS';
+        }
+        if(data.fiitjee){
+            url += '&entry.1087145370=FIITJEE';
+        }
+        if(data.krm){
+            url += '&entry.1087145370=K.+R.+Mangalam';
+        }
+        if(data.gbs){
+            url += '&entry.1087145370=Gyan+Bharti';
+        }
+        if(data.other!=''){
+            url +=`&entry.1087145370=__other_option__&entry.1087145370.other_option_response=`;
+            url += encodeURI(data.other);
+        }
+        url += `&entry.839337160=`;
+        url += encodeURI(data.comments);
+        url += '&submit=Submit'
+        let xhttp = new XMLHttpRequest();
+        xhttp.open("GET", url, true);
+        xhttp.send();
+
+        if(data.name!=''){
+            fields.thnx.innerText=`Thanks ${data.name}, I have recieved Ur msg and will get back to U asap.`
+            ;
+        }
+    }
 }
 
 function getInput(){
@@ -52,11 +83,11 @@ function getInput(){
             data.gbs = fields.gbs.checked;
             data.fiitjee = fields.fiitjee.checked;
             data.other = fields.other.value;
+            break;
         case 2:
             data.comments = fields.comments.value;
+            if(data.comments=='')state--;
     }
-    console.log(state);
-    console.log(data);
 }
 
 changeFormState();
@@ -64,8 +95,13 @@ changeFormState();
 function handleForm(event) { 
     if(event!=undefined)event.preventDefault();
     getInput();
-    console.log(state);
     state++;
+    changeFormState();
+}
+
+function backForm(){
+    getInput();
+    state--;
     changeFormState();
 }
 
@@ -75,4 +111,20 @@ form.addEventListener('submit', handleForm);
 const nextBtns = document.getElementsByClassName('formSbmt');
 for(let i = 0 ; i < nextBtns.length; ++i)nextBtns[i].addEventListener('click',()=>{
     handleForm();
-})
+});
+
+const backBtns = document.getElementsByClassName('formBack');
+for(let i = 0 ; i < backBtns.length; ++i)backBtns[i].addEventListener('click',()=>{
+    backForm();
+});
+
+
+wmsg=document.getElementById('warningMsg');
+wmsg.style.display='none';
+fields.comments.addEventListener('input', ()=>{
+    if(fields.comments.value == ''){
+        wmsg.style.display="block";
+    }else{
+        wmsg.style.display="none";
+    }
+});
