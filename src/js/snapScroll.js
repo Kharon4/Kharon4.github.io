@@ -9,6 +9,7 @@ const scrollTo= (dest,up)=>{
         if(scroll-rate > dest){
             setTimeout(scrollTo,0,dest,up);
         }else{
+            window.scrollTo(0,dest);
             listnerEnable = true;
         }
     }else{
@@ -16,6 +17,7 @@ const scrollTo= (dest,up)=>{
         if(scroll+rate < dest){
             setTimeout(scrollTo,0,dest,up);
         }else{
+            window.scrollTo(0,dest);
             listnerEnable = true;
         }
     }

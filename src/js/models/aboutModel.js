@@ -22,9 +22,9 @@ function AboutModel(fontGeo){
             return string;
         }
         // let strs = ['GIT','GITHUB','JAVASCRIPT','NODEJS','THREEJS','ELECTRON','MONGODB','REACT','MERN','C++','C','CUDA'];
-        let strs = ['PHYSICS','MATH','PROGRAMMING'];
+        let strs = ['PHYSICS','MATH','PROGRAMMING','ELECTRONICS','COMPUTERS'];
         const maxSpeed = 0.03;
-        for(let i = 0 ; i < strs.length*10 ; ++i){
+        for(let i = 0 ; i < strs.length*8 ; ++i){
             let str = makeStr(strs[i%strs.length],hlMat);
             let grp = new THREE.Group();
             grp.add(str);
