@@ -40,6 +40,10 @@ import {SelectionBox} from './models/selectionBox.js'
 import {AboutModel} from './models/aboutModel.js';
 import {EducationModel} from './models/educationModel.js';
 import {ContactModel} from './models/contactModel.js'
+import {SkillsModel} from './models/skillsModel.js'
+
+let eduState={display:false};
+
 const generateScene = (fontGeo)=>{
     let rVal = [];
 
@@ -68,6 +72,22 @@ const generateScene = (fontGeo)=>{
 
     let eduModel = EducationModel(fontGeo);
     eduModel.position.set(1,-4.1,0);
+    eduModel.updateAction =()=>{
+        eduModel.updateActionSec();
+        if(eduState.display){
+            if(eduModel.sc <= 10){
+                eduModel.sc+=0.1;
+                eduModel.scale.set(eduModel.sc,eduModel.sc,eduModel.sc);
+                eduModel.position.y += 0.01;
+            }
+        }else{
+            if(eduModel.sc > 1){
+                eduModel.sc-=0.1;
+                eduModel.scale.set(eduModel.sc,eduModel.sc,eduModel.sc);
+                eduModel.position.y-=0.01;
+            }
+        }
+    }
     // eduModel.rotation.y = -Math.PI/10;
     rVal.push(eduModel);
 
@@ -76,6 +96,9 @@ const generateScene = (fontGeo)=>{
     contactModel.rotation.y = 0;//-Math.PI;
     rVal.push(contactModel);
 
+    let skModel = SkillsModel();
+    skModel.position.set(-0.5,-6,0);
+    rVal.push(skModel);
 
     return rVal;
 }
@@ -106,27 +129,31 @@ const generateBackGround = ()=>{
     const krmDom = document.getElementById('EduKRM');
 
     let eduTexId = 0;
-    let hop = 90;
+    let hop = 1500;
     let mesh;
     //edu screen
     {
         let geo = new THREE.PlaneGeometry(1,hop);
         let mat = new THREE.MeshBasicMaterial({map:textures[0]});
         mat.depthFunc = THREE.GreaterEqualDepth;
+        mat.side = THREE.DoubleSide;
         mesh = new THREE.Mesh(geo,mat);
         mesh.renderOrder = 0;
-        mesh.count = 0;
-        mesh.position.set(0,0,-45);
+        mesh.show = false;
+        mesh.position.set(0,0,-450);
         mesh.updateAction=(mouse)=>{
-            if(mesh.count>0)mesh.visible=true;
-            else{mesh.visible=false;
+            let page = mouse.fraction*(noSections-1);
+            if(page<1.8 || page>2.2 )mesh.show=false;
+            if(mesh.show)mesh.visible=true;
+            else{
+                mesh.visible=false;
+                eduState.display=false;
                 bitsDom.style.color='white';
                 krmDom.style.color='white';
                 return;
             }
-            mesh.count-=0.1;
             mat.map=textures[eduTexId];
-            mesh.scale.x = hop*textures[eduTexId].image.width/textures[eduTexId].image.height;
+            if(textures[eduTexId].image != undefined)mesh.scale.x = hop*textures[eduTexId].image.width/textures[eduTexId].image.height;
             mesh.position.y = mouse.fraction*(noSections-1)*hop - 2*hop;
         }
         rVal.push(mesh);
@@ -136,14 +163,16 @@ const generateBackGround = ()=>{
     bitsDom.addEventListener('mouseover',
         ()=>{
         eduTexId=0;
-        mesh.count = 10;
+        mesh.show = true;
+        eduState.display=true;
         bitsDom.style.color = 'orangeRed';
         krmDom.style.color = 'white';
     });
 
     krmDom.addEventListener('mouseover',
         ()=>{
-        mesh.count = 10;
+        mesh.show = true;
+        eduState.display=true;
         eduTexId=1;
         bitsDom.style.color = 'white';
         krmDom.style.color = 'orangeRed';
@@ -162,7 +191,7 @@ function renderer(meshArr,staticMesh){
 
     this.init = ()=>{
         this.scene = new THREE.Scene();
-        this.camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 100 );
+        this.camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 1000 );
         this.renderer = new THREE.WebGLRenderer({
             antialias:true
         });

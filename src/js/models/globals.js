@@ -15,8 +15,10 @@ const noSections = document.getElementsByClassName('sec').length;
 
 let textures = [
     new THREE.TextureLoader().load( './src/images/BITS.jpg' ),
-    new THREE.TextureLoader().load( './src/images/KRM.jpg' )
+    new THREE.TextureLoader().load( './src/images/KRM2.jpg' )
 ];
+
+console.log(textures[0].image)
 
 
 export {THREE,compCols,highLightCol,grey,whiteMat,blackMat,greyMat,hlMat,noSections,textures};
