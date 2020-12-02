@@ -25,7 +25,7 @@ function AboutModel(fontGeo){
         let strs = ['PHYSICS','MATH','PROGRAMMING'];
         const maxSpeed = 0.03;
         for(let i = 0 ; i < strs.length*10 ; ++i){
-            let str = makeStr(strs[i%strs.length],blackMat);
+            let str = makeStr(strs[i%strs.length],hlMat);
             let grp = new THREE.Group();
             grp.add(str);
             grp.RP = {x:Math.random()-0.5,y:Math.random()-0.5,z:Math.random()-0.5};

@@ -2,8 +2,10 @@ let form = document.getElementById("contactForm");
 
 
 let fields = {
-    name:document.getElementById("nameField"),
+    stage1:document.getElementById("formStage1"),
     stage2:document.getElementById("formStage2"),
+    stage3:document.getElementById("formStage3"),
+    name:document.getElementById("nameField"),
     comments:document.getElementById("commentsField"),
     thnx:document.getElementById("thnxField"),
     bits:document.getElementById("bitsField"),
@@ -13,7 +15,7 @@ let fields = {
     other:document.getElementById("otherField")
 };
 
-let fieldSecs = [fields.name,fields.stage2,fields.comments,fields.thnx];
+let fieldSecs = [fields.stage1,fields.stage2,fields.stage3,fields.thnx];
 
 let state = 0;
 
@@ -60,7 +62,7 @@ function getInput(){
 changeFormState();
 
 function handleForm(event) { 
-    event.preventDefault();
+    if(event!=undefined)event.preventDefault();
     getInput();
     console.log(state);
     state++;
@@ -68,3 +70,9 @@ function handleForm(event) {
 }
 
 form.addEventListener('submit', handleForm);
+
+
+const nextBtns = document.getElementsByClassName('formSbmt');
+for(let i = 0 ; i < nextBtns.length; ++i)nextBtns[i].addEventListener('click',()=>{
+    handleForm();
+})

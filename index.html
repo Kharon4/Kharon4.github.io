@@ -10,7 +10,7 @@
 <body>
     <nav>
         <div id="logo">
-            <a  href="#secAbhishekKhurana"><img src="./src/images/logo.gif" height='49px'></a>
+            <a  href="#secAbhishekKhurana"><img src="./src/images/logo.gif" height='49px' id='logoImage'></a>
         </div>
         <div id="navOptions">
             <ul>
@@ -33,7 +33,9 @@
                     and I'm an Engineer.
                 </h3>
                 <br><br><br>
-                --- View on a desktop browser for best experience
+                <div class='grey'>
+                    --- View on a desktop browser for best experience
+                </div>
             </div>
         </div>
         <a id='secAbout'></a>
@@ -69,35 +71,59 @@
         <a id='secContact'></a>
         <div class="sec">
             <div class="paraB">
-                <h1>Contact Me</h1>
-                <form id='contactForm'>
-                    <input type="text" id="nameField" name="Name" placeholder="Name (or stay anonymous)">
-                    <div id="formStage2">
-                        How do u know me ?<br>
-                        <label class="container">
-                        <input type="checkbox" name="BITS" id="bitsField"> BITS<br>
-                        <span class="checkmark"></span>
-                        </label>
-                        <label class="container">
-                        <input type="checkbox" name="FIITJEE" id="fiitjeeField"> FIITJEE<br>
-                        <span class="checkmark"></span>
-                        </label>
-                        <label class="container">
-                        <input type="checkbox" name="KRM" id="krmField"> KRM<br>
-                        <span class="checkmark"></span>
-                        </label>
-                        <label class="container">
-                        <input type="checkbox" name="GBS" id="gbsField"> GBS<br>
-                        <span class="checkmark"></span>
-                        </label>
-                        <input type="text" name="Other"  placeholder="Other" id="otherField">
+                <div class='upper80'>
+                    <h1>Contact Me</h1>
+                    <form id='contactForm'>
+                        <div id="formStage1" style='width:100%;text-align: left;'>
+                            <input type="text" id="nameField" name="Name" placeholder="Name (or stay anonymous)">
+                            <div style='width:100%;text-align: left;'>
+                                <img class='icnImg formSbmt' src="./src/images/formDirs/next.png" alt="next">
+                            </div>
+                        </div>
+                        <div id="formStage2" style='width:100%;text-align: left;'>
+                            How do u know me ?<br>
+                            <label class="container">
+                            <input type="checkbox" name="BITS" id="bitsField"> BITS<br>
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="container">
+                            <input type="checkbox" name="FIITJEE" id="fiitjeeField"> FIITJEE<br>
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="container">
+                            <input type="checkbox" name="KRM" id="krmField"> KRM<br>
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="container">
+                            <input type="checkbox" name="GBS" id="gbsField"> GBS<br>
+                            <span class="checkmark"></span>
+                            </label>
+                            <input type="text" name="Other"  placeholder="Other" id="otherField">
+                            <div style='width:100%;text-align: left;'>
+                                <img class='icnImg' src="./src/images/formDirs/back.png" alt="back">
+                                <img class='icnImg formSbmt' src="./src/images/formDirs/next.png" alt="next">
+                            </div>
+                        </div>
+                        <div id="formStage3" style='width:100%;text-align: left;'>
+                            <input type="text" name="comments"  placeholder="Comments" id="commentsField">
+                            <div style='width:100%;text-align: left;'>
+                                <img class='icnImg' src="./src/images/formDirs/back.png" alt="back">
+                                <img class='icnImg formSbmt' src="./src/images/formDirs/tick.png" alt="next">
+                            </div>
+                        </div>
+                        <input type="submit" value="" style="display: none;" id="sButton"/>
+                        
+                    </form>
+                    <div id="thnxField">
+                        Thanks I have recieved Ur msg and will get back to U asap.
                     </div>
-                    <input type="text" name="comments"  placeholder="Comments" id="commentsField">
-                    <input type="submit" value="" style="display: none;" id="sButton"/>
-                    
-                </form>
-                <div id="thnxField">
-                    Thanks I have recieved Ur msg and will get back to U asap.
+                </div>
+                <div>
+                    <img class='icnImg' src="./src/images/socialMedia/linkedin.png" alt="linkedin">
+                    <img class='icnImg' src="./src/images/socialMedia/github.png" alt="github">
+                    <img class='icnImg' src="./src/images/socialMedia/mail.png" alt="mail">
+                    <img class='icnImg' src="./src/images/socialMedia/fb.png" alt="facebook">
+                    <img class='icnImg' src="./src/images/socialMedia/instagram.png" alt="instagram">
                 </div>
             </div>
         </div>

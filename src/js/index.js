@@ -62,6 +62,7 @@ const generateScene = (fontGeo)=>{
 
     //Selection box
     let selectBox = SelectionBox();
+    selectBox.scale.set(0.2,0.2,0.2);
     selectBox.position.set(0,-2,0);
     rVal.push(selectBox);
     
