@@ -115,7 +115,7 @@ const generateBackGround = ()=>{
 
     //white screens
     const whitePannels = [1,3];
-    const heightOfPannel = 0.22;
+    const heightOfPannel = 0.2;
     for(let i = 0 ; i < whitePannels.length ; ++i){
         {
             let geo = new THREE.PlaneGeometry(100,heightOfPannel);
@@ -280,8 +280,10 @@ function renderer(meshArr,staticMesh){
     window.addEventListener( 'mousemove', this.updateMousePos, false );
     window.addEventListener('touchmove',this.updateTouchPos,false);
     
-    window.addEventListener('scroll',()=>{
-        this.mouse.scroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const websiteContentDom = document.getElementById('websiteContent');
+
+    websiteContentDom.addEventListener('scroll',()=>{
+        this.mouse.scroll = websiteContentDom.scrollTop;//document.documentElement.scrollTop || document.body.scrollTop;
         this.mouse.fraction = this.mouse.scroll/((noSections-1)*window.innerHeight);
         this.updateNavEle();
         this.updateCamPos();
