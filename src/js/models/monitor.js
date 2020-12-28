@@ -36,7 +36,7 @@ function Monitor(fontGeo){
         monitor.add(mesh);
         
         //A
-        const keyNameScale = 0.05;
+        const keyNameScale = 0.03;
         const makeStr = (str,mat)=>{
             
             let string = new THREE.Group();
@@ -54,19 +54,19 @@ function Monitor(fontGeo){
             " [VERSION 10.7.20911.847]",
             " (C) 2020. ALL RIGHTS RESERVED.",
             " C:\\USERS\\ABHISHEKKHURANA> START TESTPROJECT",
-            " HELLO WORLD !!!",
-            "",
             "  /\\ /\\",
             " ((@V@))",
             " ():::()",
             "  VV-VV",
-            "",
+            " \"WHY NOT HAVE"," A LOOK AROUND ?",
+            " JUST MOVE THE CURSOR"," WITHIN THE BOUNDS.\"",
+            "    -THE WISE OLD OWL",
             " C:\\USERS\\ABHISHEKKHURANA>"
         ];
-        const mats = [gl.whiteMat,gl.whiteMat,gl.whiteMat,gl.hlMat,gl.hlMat,gl.hlMat,gl.hlMat,gl.hlMat,gl.hlMat,gl.hlMat,gl.whiteMat];
+        const mats = [gl.whiteMat,gl.whiteMat,gl.whiteMat,gl.hlMat,gl.hlMat,gl.hlMat,gl.hlMat,gl.hlMat,gl.hlMat,gl.hlMat,gl.hlMat,gl.hlMat,gl.whiteMat];
         for(let i = 0 ; i < str.length ; ++i){
             let string = makeStr(str[i],mats[i]);
-            string.position.set(0,-keyNameScale*i*2+0.05,0);
+            string.position.set(0,-keyNameScale*i*2-0.23,0);
             monitor.add(string);
         }
         

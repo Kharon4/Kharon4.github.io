@@ -17,7 +17,7 @@
         </div>
     </div>
     <div id='websiteContent' style="display:none;">
-        <nav>
+        <nav id='navBar'>
             <div id="logo">
                 <a  href="#secAbhishekKhurana"><img src="./src/images/logo.gif" height='49px' id='logoImage'></a>
             </div>
@@ -114,10 +114,10 @@
                     <form id='contactForm'>
                         <div id="formStage1" style='width:100%;text-align: left;'>
                             <input type="text" id="nameField" name="Name" placeholder="Name (or stay anonymous)">
-                            <div style='width:100%;text-align: left;'>
+                            <!-- <div style='width:100%;text-align: left;'>
                                 <img class='icnImg formSbmt' src="./src/images/formDirs/next.png" alt="next">
-                            </div>
-                        </div>
+                            </div> -->
+                        </div><br><br>
                         <div id="formStage2" style='width:100%;text-align: left;'>
                             How do u know me ?<br>
                             <label class="container">
@@ -137,16 +137,17 @@
                             <span class="checkmark"></span>
                             </label>
                             <input type="text" name="Other"  placeholder="Other" id="otherField">
-                            <div style='width:100%;text-align: left;'>
+                            <!-- <div style='width:100%;text-align: left;'>
                                 <img class='icnImg formBack' src="./src/images/formDirs/back.png" alt="back">
                                 <img class='icnImg formSbmt' src="./src/images/formDirs/next.png" alt="next">
-                            </div>
-                        </div>
+                            </div> -->
+                        </div><br><br>
                         <div id="formStage3" style='width:100%;text-align: left;'>
-                            <input type="text" name="comments"  placeholder="Comments" id="commentsField">
-                            <div id="warningMsg" >U must enter a message !</div>
-                            <div style='width:100%;text-align: left;'>
-                                <img class='icnImg formBack' src="./src/images/formDirs/back.png" alt="back">
+                            <!-- <input type="text" name="comments"  placeholder="Comments" id="commentsField"> -->
+                            <textarea id="commentsField" name="comments"  placeholder="Comments" rows='4' cols='20'></textarea>
+                            <div id="warningMsg" style="color:var(--colEm);">U must enter a message !</div>
+                            <div style='width:100%;text-align: right;'>
+                                <!-- <img class='icnImg formBack' src="./src/images/formDirs/back.png" alt="back"> -->
                                 <img class='icnImg formSbmt' src="./src/images/formDirs/tick.png" alt="next">
                             </div>
                             

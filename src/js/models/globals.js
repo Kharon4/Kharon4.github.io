@@ -18,6 +18,6 @@ let textures = [
     new THREE.TextureLoader().load( './src/images/KRM2.jpg' )
 ];
 
-
+textures[0].needsUpdate = true;
 
 export {THREE,compCols,highLightCol,grey,whiteMat,blackMat,greyMat,hlMat,noSections,textures};

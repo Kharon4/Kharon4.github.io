@@ -142,6 +142,7 @@ const generateBackGround = ()=>{
     {
         let geo = new THREE.PlaneGeometry(1,hop);
         let mat = new THREE.MeshBasicMaterial({map:textures[0]});
+        mat.map.needsUpdate=true;
         mat.depthFunc = THREE.GreaterEqualDepth;
         mat.side = THREE.DoubleSide;
         mesh = new THREE.Mesh(geo,mat);
@@ -281,10 +282,22 @@ function renderer(meshArr,staticMesh){
     window.addEventListener('touchmove',this.updateTouchPos,false);
     
     const websiteContentDom = document.getElementById('websiteContent');
+    const navBarDom = document.getElementById('navBar');
 
     websiteContentDom.addEventListener('scroll',()=>{
         this.mouse.scroll = websiteContentDom.scrollTop;//document.documentElement.scrollTop || document.body.scrollTop;
         this.mouse.fraction = this.mouse.scroll/((noSections-1)*websiteContentDom.clientHeight);
+        
+        let page = Math.round(this.mouse.fraction*(noSections-1));
+        switch(page){
+            case 1:
+            case 3:
+                navBarDom.classList.add('navInvert');
+                break;
+            default:
+                navBarDom.classList.remove('navInvert');
+        }
+        
         this.updateNavEle();
         this.updateCamPos();
     });
