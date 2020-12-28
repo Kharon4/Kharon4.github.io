@@ -6,24 +6,31 @@
     <title>AbhishekKhurana</title>
     <link rel="icon" href="src/images/favicon.png" type="image/gif" sizes="16x16">
     <link href="src/css/theme.css" rel="stylesheet">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' *.github.io *.github.com;">
-    <!-- <link href="src/css/index.css" rel="stylesheet"> -->
 </head>
 <body>
-    <nav>
-        <div id="logo">
-            <a  href="#secAbhishekKhurana"><img src="./src/images/logo.gif" height='49px' id='logoImage'></a>
+    <div id='loading' style="height: 100vh;background-color: black;overflow: hidden;">
+        <div style='position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);text-align: center;'>
+            <div style='width: 350px;height: 7px;background-color: none;'>
+                <div id='loadingBar' style='width:0%;height: 7px;background-color: orangered;'></div>
+            </div><br>
+            <h3 id='loadingTitle'>Getting stuff ready</h3>
         </div>
-        <div id="navOptions">
-            <ul>
-                <li class='menItem' id='navContact'>ContactMe</li>
-                <li class='menItem' id='navSkills'>Skills</li>
-                <li class='menItem' id='navEdu'>Education</li>
-                <li class='menItem' id='navAbout'>About</li>
-                <li class='menItem hlMItem' id='navAB'>AbhishekKhurana</li>
-            </ul>
-        </div>
-    </nav>
+    </div>
+    <div id='websiteContent' style="display:none;">
+        <nav>
+            <div id="logo">
+                <a  href="#secAbhishekKhurana"><img src="./src/images/logo.gif" height='49px' id='logoImage'></a>
+            </div>
+            <div id="navOptions">
+                <ul>
+                    <li class='menItem' id='navContact'>ContactMe</li>
+                    <li class='menItem' id='navSkills'>Skills</li>
+                    <li class='menItem' id='navEdu'>Education</li>
+                    <li class='menItem' id='navAbout'>About</li>
+                    <li class='menItem hlMItem' id='navAB'>AbhishekKhurana</li>
+                </ul>
+            </div>
+        </nav>
         <a id='secAbhishekKhurana'></a>
         <div class="sec">
             <div class="paraB">
@@ -146,6 +153,7 @@
                 </div>
             </div>
         </div>
+    </div>
     <script src='./src/js/formHandler.js'></script>
     <script type='module' src="./src/js/index.js"></script>
     <script src='./src/js/snapScroll.js'></script>

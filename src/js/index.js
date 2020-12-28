@@ -1,6 +1,7 @@
+import {load} from './load.js';
+
 //DOM
 let navElements = document.getElementsByClassName('menItem');
-
 
 //canvas
 //import * as THREE from '../../node_modules/three/build/three.module.js';
@@ -15,20 +16,26 @@ const generateTextGeo = (callBack)=>{
     fontLoader.load('src/threejsSrc/fonts/Consolas_Regular.json',
         (font)=>{
             let fontGeo=[];
-            for(let i = 0; i <96; ++i){
-                // console.log(i,String.fromCharCode(i));
-                fontGeo.push(
-                new THREE.TextGeometry(
-                        String.fromCharCode(i),
-                        {
-                            font:font,
-                            size:1,
-                            height:0.1
-                        }
-                    )
-                );
+            let j = 0;
+            const loadF = ()=>{
+                if(j<96){
+                    fontGeo.push(new THREE.TextGeometry(
+                                String.fromCharCode(j),
+                                {
+                                    font:font,
+                                    size:1,
+                                    height:0.1
+                                }
+                            )
+                        );
+                    j++;
+                    load(loadF,`Getting Stuff Ready`);
+                }else{
+                    console.log('finished')
+                    if(callBack!=undefined)callBack(fontGeo);
+                }
             }
-            if(callBack!=undefined)callBack(fontGeo);
+            load(loadF,'Getting Stuff Ready')
         }
     );
 }
@@ -288,6 +295,12 @@ function renderer(meshArr,staticMesh){
 
 
 generateTextGeo((fontGeo)=>{
-    var rd = new renderer(generateScene(fontGeo),generateBackGround());
+    let sceneArr;
+    let bgArr;
+    let rd;
+
+    load(()=>{sceneArr=generateScene(fontGeo);},'Setting Up Scene');
+    load(()=>{bgArr = generateBackGround();},'Setting Up Background');
+    load(()=>{rd = new renderer(sceneArr,bgArr)},'Done');
 })
 
