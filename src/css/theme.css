@@ -117,6 +117,20 @@ nav{
     right: 0;
 }
 
+.navIcon{
+  margin-top: 0.25rem;
+  height: 1.5rem;
+  filter: invert();
+  display:none;
+}
+
+.navIcon:active{
+  margin-top: 0.25rem;
+  height: 1.5rem;
+  filter: invert();
+  display:none;
+}
+
 ul{
     width:100%;
     text-align: right;
@@ -128,11 +142,14 @@ ul{
 
 li{
     box-sizing: border-box;
-    padding:1em 1em 1em 1em;
+    padding:0rem 1rem 0rem 1rem;
+}
+.navText{
+  display: inline-block;
+  padding: 1em 0rem 0.75rem 0rem;
 }
 
 .hlMItem {
-    padding: 1em 1em 0.75em 1em;
     border-bottom: var(--colEm) 0.25em solid;
 }
 
@@ -276,19 +293,19 @@ h3{
 
 /* mobile */
 @media (orientation: portrait) {
-  #navOptions{
+  /* #navOptions{
     display: inline-block;
     width: 100%;
     font-size: 0.7rem;
     min-width: 100px;
     text-align: right;
     right: 0;
-  }
+  } */
 
-  .hlMItem {
+  /* .hlMItem {
     padding: 0.5rem;
     border-bottom: var(--colEm) 0.25em solid;
-  }
+  } */
 
   #logoImage{
     position: absolute;
@@ -302,10 +319,10 @@ h3{
     margin: 4% 5% 4% 5%
   }
   
-  li{
+  /* li{
     box-sizing: border-box;
     padding:0.5em 0.5em 0.5em 0.5em;
-  }
+  } */
 
   .paraW{
     max-height: 80%;
@@ -314,9 +331,17 @@ h3{
     margin: 4% 5% 4% 5%
   }
 
-  .icnImg{
+  /* .icnImg{
     margin:1%;
     height: 2.5rem;
+  } */
+  
+  .navText{
+    display: none;
+  }
+
+  .navIcon{
+    display: inline-block;
   }
 }
 

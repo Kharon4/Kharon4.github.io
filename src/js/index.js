@@ -31,7 +31,6 @@ const generateTextGeo = (callBack)=>{
                     j++;
                     load(loadF,`Getting Stuff Ready`);
                 }else{
-                    console.log('finished')
                     if(callBack!=undefined)callBack(fontGeo);
                 }
             }
