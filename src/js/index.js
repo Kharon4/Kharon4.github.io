@@ -284,7 +284,7 @@ function renderer(meshArr,staticMesh){
 
     websiteContentDom.addEventListener('scroll',()=>{
         this.mouse.scroll = websiteContentDom.scrollTop;//document.documentElement.scrollTop || document.body.scrollTop;
-        this.mouse.fraction = this.mouse.scroll/((noSections-1)*window.innerHeight);
+        this.mouse.fraction = this.mouse.scroll/((noSections-1)*websiteContentDom.clientHeight);
         this.updateNavEle();
         this.updateCamPos();
     });
