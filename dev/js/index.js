@@ -7,7 +7,6 @@ import {load} from './load.js';
 let navElements = document.getElementsByClassName('menItem');
 
 //canvas
-//import * as THREE from '../../node_modules/three/build/three.module.js';
 import {THREE,compCols,textures,highLightCol,grey,whiteMat,blackMat,greyMat,hlMat,noSections} from './models/globals.js';
 import {camPath} from './cameraPath.js';
 
@@ -15,8 +14,7 @@ import {camPath} from './cameraPath.js';
 
 const generateTextGeo = (callBack)=>{
     const fontLoader = new THREE.FontLoader();
-    //'./node_modules/three/examples/fonts/helvetiker_regular.typeface.json'
-    fontLoader.load('src/threejsSrc/fonts/Consolas_Regular.json',
+    fontLoader.load('src/jsonFonts/Consolas_Regular.json',
         (font)=>{
             let fontGeo=[];
             let j = 0;
