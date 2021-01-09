@@ -1,3 +1,6 @@
+import './../css/theme.css';
+import './formHandler'
+
 import {load} from './load.js';
 
 //DOM

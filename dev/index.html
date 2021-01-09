@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AbhishekKhurana</title>
+    <link rel="icon" href="src/images/favicon.png" type="image/gif" sizes="16x16">
+    <!-- <link href="src/css/theme.css" rel="stylesheet"> -->
+</head>
+<body>
+    <div id='loading' style="height: 100vh;background-color: black;overflow: hidden;">
+        <div style='position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);text-align: center;'>
+            <div style='width: 350px;height: 7px;background-color: none;'>
+                <div id='loadingBar' style='width:0%;height: 7px;background-color: orangered;'></div>
+            </div><br>
+            <h3 id='loadingTitle'>Getting Stuff Ready</h3>
+        </div>
+    </div>
+    <div id='websiteContent' style="display:none;">
+        <nav id='navBar'>
+            <div id="logo">
+                <a  href="#secAbhishekKhurana"><img src="./src/images/logo.gif" height='49px' id='logoImage'></a>
+            </div>
+            <div id="navOptions">
+                <ul>
+                    <a  href="#secContact">
+                        <li class='menItem' id='navContact'>
+                            <img src="./src/images/icons/contact.svg" class="navIcon">
+                            <span class='navText'>ContactMe</span>
+                        </li>
+                    </a>
+                    <a  href="#secSkills">    
+                        <li class='menItem' id='navSkills'>
+                            <img src="./src/images/icons/skills.png" class="navIcon">
+                            <span class='navText'>Skills</span>
+                        </li>
+                    </a>
+                    <a  href="#secEducation">
+                        <li class='menItem' id='navEdu'>
+                            <img src="./src/images/icons/education.svg" class="navIcon">
+                            <span class='navText'>Education</span>
+                        </li>
+                    </a>
+                    <a  href="#secAbout">
+                        <li class='menItem' id='navAbout'>
+                            <img src="./src/images/icons/about.svg" class="navIcon">
+                            <span class='navText'>About</span>
+                        </li>
+                    </a>
+                    <a  href="#secAbhishekKhurana">
+                        <li class='menItem hlMItem' id='navAB'> 
+                            <img src="./src/images/icons/main.svg" class="navIcon">
+                            <span class='navText'>AbhishekKhurana</span>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </nav>
+        <a id='secAbhishekKhurana'></a>
+        <div class="sec">
+            <div class="paraB">
+                <h1>
+                    Hello World
+                </h1>
+                <h3>
+                    I’m Abhishek Khurana,<br>
+                    and I'm an Engineer.
+                </h3>
+                <br><br><br>
+                <div class='grey'>
+                    --- View on a desktop browser for best experience
+                </div>
+            </div>
+        </div>
+        <a id='secAbout'></a>
+        <div class="inv sec">
+            <div class="paraW">
+                <h1>About</h1>
+
+                Creative and people-oriented Engineer with experience in writing high performance code. Well versed in handling and writing large projects from scratch, with knowledge of multiple APIs.
+                <br><br><br>
+                <div class='grey'>
+                    Applying Computers, Electronics, Math, and Physics to practically everything !
+                </div>
+            </div>
+        </div>
+        <a id='secEducation'></a>
+        <div class="sec">
+            <div class="paraB">
+                <h1>Education</h1>
+                <div id='EduBITS'>> B.E. Electrical & Electronics Engineering - Birla Institute of Technology & Science, Pilani </div>
+                <br>
+                <div id='EduKRM'>> X, XII Standard (CBSE) - K. R. Mangalam World School, GK-2</div>
+                <br>
+                <div class='grey'>click on any of the above to get a view of that it was like to be there</div>
+            </div>
+        </div>
+        <a id='secSkills'></a>
+        <div class="inv sec">
+            <div class="paraW">
+                <h1>Skills</h1>
+                <strong>Languages I speak:</strong><br>
+                C C++ C# JS HTML CSS
+                <br><br>
+                <strong>Technologies, Libs and Tools I use:</strong><br>
+                Node.js MongoDB WebRTC Socket.IO jQuery Three.js Electron Git GitHub CUDA Win32API GDI+ OpenCV
+            </div>
+        </div>
+        <a id='secContact'></a>
+        <div class="sec">
+            <div class="paraB" style='height: 80%;'>
+                <div class='upper80'>
+                    <h1>Contact Me</h1>
+                    <form id='contactForm'>
+                        <div id="formStage1" style='width:100%;text-align: left;'>
+                            <input type="text" id="nameField" name="Name" placeholder="Name (or stay anonymous)">
+                            <!-- <div style='width:100%;text-align: left;'>
+                                <img class='icnImg formSbmt' src="./src/images/formDirs/next.png" alt="next">
+                            </div> -->
+                        </div><br><br>
+                        <div id="formStage2" style='width:100%;text-align: left;'>
+                            How do u know me ?<br>
+                            <label class="container">
+                            <input type="checkbox" name="BITS" id="bitsField"> BITS<br>
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="container">
+                            <input type="checkbox" name="FIITJEE" id="fiitjeeField"> FIITJEE<br>
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="container">
+                            <input type="checkbox" name="KRM" id="krmField"> KRM<br>
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="container">
+                            <input type="checkbox" name="GBS" id="gbsField"> GBS<br>
+                            <span class="checkmark"></span>
+                            </label>
+                            <input type="text" name="Other"  placeholder="Other" id="otherField">
+                            <!-- <div style='width:100%;text-align: left;'>
+                                <img class='icnImg formBack' src="./src/images/formDirs/back.png" alt="back">
+                                <img class='icnImg formSbmt' src="./src/images/formDirs/next.png" alt="next">
+                            </div> -->
+                        </div><br><br>
+                        <div id="formStage3" style='width:100%;text-align: left;'>
+                            <!-- <input type="text" name="comments"  placeholder="Comments" id="commentsField"> -->
+                            <textarea id="commentsField" name="comments"  placeholder="Comments" rows='4' cols='20'></textarea>
+                            <div id="warningMsg" style="color:var(--colEm);">U must enter a message !</div>
+                            <div style='width:100%;text-align: right;'>
+                                <!-- <img class='icnImg formBack' src="./src/images/formDirs/back.png" alt="back"> -->
+                                <img class='icnImg formSbmt' src="./src/images/formDirs/tick.png" alt="next">
+                            </div>
+                            
+                        </div>
+                        <input type="submit" value="" style="display: none;" id="sButton"/>
+                        
+                    </form>
+                    <div id="thnxField">
+                        Thanks, I have recieved Ur msg and will get back to U asap.
+                    </div>
+                </div>
+                <div>
+                    <a href="https://www.linkedin.com/in/-abhishekkhurana-/">
+                        <img class='icnImg' src="./src/images/socialMedia/linkedin.png" alt="linkedin">
+                    </a>
+                    <a href="https://github.com/Kharon4">
+                        <img class='icnImg' src="./src/images/socialMedia/github.png" alt="github">
+                    </a>
+                    <a href="mailto:khuranaabhishek404@gmail.com">
+                        <img class='icnImg' src="./src/images/socialMedia/mail.png" alt="mail">
+                    </a>
+                    <a href="https://www.facebook.com/abhishek.khurana.75248">
+                        <img class='icnImg' src="./src/images/socialMedia/fb.png" alt="facebook">
+                    </a>
+                    <a href="https://www.instagram.com/abhishekkhurana404/">
+                        <img class='icnImg' src="./src/images/socialMedia/instagram.png" alt="instagram">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src='./src/js/formHandler.js'></script> -->
+    <!-- <script type='module' src="./src/js/index.js"></script> -->
+</body>
+</html>
