@@ -1,3 +1,8 @@
+//console message
+console.log('%cWhat\'s Up Geek !!!\n\n\nI love talking to smart ppl, feel free to contact me.\n\n\n'
+,"--font: 'Inconsolata', monospace;color:#ff4500; font-size:30px;background:#fff;"
+);
+
 import './../css/theme.css';
 import './formHandler'
 
@@ -191,6 +196,22 @@ const generateBackGround = ()=>{
     return rVal;
 }
 
+const navContentDom = document.getElementById('navCArea');//nav bar content name
+const navBarContent = document.getElementById('navInnerContents');//all contents inside nav bar
+(()=>{//nav movement
+    let navCl = false;
+    navContentDom.addEventListener('click',()=>{
+        navCl = true;
+        navBarContent.style.left = '-100%';
+    });
+
+    document.body.addEventListener('click',()=>{
+        if(navCl) navCl=false;
+        else navBarContent.style.left = '0%';
+    });
+
+})();
+
 function renderer(meshArr,staticMesh){
     this.scene = null;
     this.renderer = null;
@@ -220,6 +241,9 @@ function renderer(meshArr,staticMesh){
         this.camera.aspect = window.innerWidth / window.innerHeight;
         this.camera.updateProjectionMatrix();
         this.renderer.setSize( window.innerWidth, window.innerHeight );
+        if(window.innerHeight<window.innerWidth){
+            navBarContent.style.left = '0%';
+        }
     }
     window.addEventListener('resize',this.resize)
 
@@ -242,7 +266,7 @@ function renderer(meshArr,staticMesh){
         this.camera.rotation.z = camPath[lL][5]*uF+camPath[uL][5]*lF;
     }
 
-
+    
     this.updateNavEle = ()=>{
         let sec = this.mouse.fraction;
         sec*= noSections-1;
@@ -250,7 +274,8 @@ function renderer(meshArr,staticMesh){
         if(sec >= navElements.length)sec=navElements.length-1;
         for(let i = 0 ; i < navElements.length ; ++i)navElements[i].classList.remove('hlMItem');
         navElements[navElements.length-1-sec].classList.add('hlMItem');
-
+        navContentDom.innerHTML = navElements[navElements.length-1-sec].getElementsByTagName('span')[0].innerText;
+        navContentDom.innerHTML += ' &#9776;';
     }
 
     this.animate = ()=>{

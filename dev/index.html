@@ -18,42 +18,47 @@
     </div>
     <div id='websiteContent' style="display:none;">
         <nav id='navBar'>
-            <div id="logo">
-                <a  href="#secAbhishekKhurana"><img src="./src/images/logo.gif" height='49px' id='logoImage'></a>
-            </div>
-            <div id="navOptions">
-                <ul>
-                    <a  href="#secContact">
-                        <li class='menItem' id='navContact'>
-                            <img src="./src/images/icons/contact.svg" class="navIcon">
-                            <span class='navText'>ContactMe</span>
-                        </li>
-                    </a>
-                    <a  href="#secSkills">    
-                        <li class='menItem' id='navSkills'>
-                            <img src="./src/images/icons/skills.png" class="navIcon">
-                            <span class='navText'>Skills</span>
-                        </li>
-                    </a>
-                    <a  href="#secEducation">
-                        <li class='menItem' id='navEdu'>
-                            <img src="./src/images/icons/education.svg" class="navIcon">
-                            <span class='navText'>Education</span>
-                        </li>
-                    </a>
-                    <a  href="#secAbout">
-                        <li class='menItem' id='navAbout'>
-                            <img src="./src/images/icons/about.svg" class="navIcon">
-                            <span class='navText'>About</span>
-                        </li>
-                    </a>
-                    <a  href="#secAbhishekKhurana">
-                        <li class='menItem hlMItem' id='navAB'> 
-                            <img src="./src/images/icons/main.svg" class="navIcon">
-                            <span class='navText'>AbhishekKhurana</span>
-                        </li>
-                    </a>
-                </ul>
+            <div id = 'navInnerContents'>
+                <div id="logo">
+                    <a  href="#secAbhishekKhurana"><img src="./src/images/logo.gif"  id='logoImage'></a>
+                </div>
+                <div id="navCArea">
+                    AbhishekKhurana &#9776;
+                </div>
+                <div id="navOptions">
+                    <ul>
+                        <a  href="#secContact">
+                            <li class='menItem' id='navContact'>
+                                <img src="./src/images/icons/contact.svg" class="navIcon">
+                                <span class='navText'>ContactMe</span>
+                            </li>
+                        </a>
+                        <a  href="#secSkills">    
+                            <li class='menItem' id='navSkills'>
+                                <img src="./src/images/icons/skills.png" class="navIcon">
+                                <span class='navText'>Skills</span>
+                            </li>
+                        </a>
+                        <a  href="#secEducation">
+                            <li class='menItem' id='navEdu'>
+                                <img src="./src/images/icons/education.svg" class="navIcon">
+                                <span class='navText'>Education</span>
+                            </li>
+                        </a>
+                        <a  href="#secAbout">
+                            <li class='menItem' id='navAbout'>
+                                <img src="./src/images/icons/about.svg" class="navIcon">
+                                <span class='navText'>About</span>
+                            </li>
+                        </a>
+                        <a  href="#secAbhishekKhurana">
+                            <li class='menItem hlMItem' id='navAB'> 
+                                <img src="./src/images/icons/main.svg" class="navIcon">
+                                <span class='navText'>AbhishekKhurana</span>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
             </div>
         </nav>
         <a id='secAbhishekKhurana'></a>
@@ -109,14 +114,11 @@
         <a id='secContact'></a>
         <div class="sec">
             <div class="paraB" style='height: 80%;'>
-                <div class='upper80'>
+                <div>
                     <h1>Contact Me</h1>
                     <form id='contactForm'>
                         <div id="formStage1" style='width:100%;text-align: left;'>
                             <input type="text" id="nameField" name="Name" placeholder="Name (or stay anonymous)">
-                            <!-- <div style='width:100%;text-align: left;'>
-                                <img class='icnImg formSbmt' src="./src/images/formDirs/next.png" alt="next">
-                            </div> -->
                         </div><br><br>
                         <div id="formStage2" style='width:100%;text-align: left;'>
                             How do u know me ?<br>
@@ -137,17 +139,11 @@
                             <span class="checkmark"></span>
                             </label>
                             <input type="text" name="Other"  placeholder="Other" id="otherField">
-                            <!-- <div style='width:100%;text-align: left;'>
-                                <img class='icnImg formBack' src="./src/images/formDirs/back.png" alt="back">
-                                <img class='icnImg formSbmt' src="./src/images/formDirs/next.png" alt="next">
-                            </div> -->
                         </div><br><br>
                         <div id="formStage3" style='width:100%;text-align: left;'>
-                            <!-- <input type="text" name="comments"  placeholder="Comments" id="commentsField"> -->
                             <textarea id="commentsField" name="comments"  placeholder="Comments" rows='4' cols='20'></textarea>
                             <div id="warningMsg" style="color:var(--colEm);">U must enter a message !</div>
                             <div style='width:100%;text-align: right;'>
-                                <!-- <img class='icnImg formBack' src="./src/images/formDirs/back.png" alt="back"> -->
                                 <img class='icnImg formSbmt' src="./src/images/formDirs/tick.png" alt="next">
                             </div>
                             
