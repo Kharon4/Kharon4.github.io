@@ -217,7 +217,7 @@ function renderer(meshArr,staticMesh){
     this.renderer = null;
     this.camera = null;
     this.mouse = {x:0,y:0,scroll:0,fraction:0};
-    this.camOffset = {x:0,y:0,senstivity:0.15};
+    this.camOffset = {x:0,y:0,senstivity:0.15,ipFactor:0.05};
 
     this.init = ()=>{
         this.scene = new THREE.Scene();
@@ -258,11 +258,20 @@ function renderer(meshArr,staticMesh){
         let lF = fraction-lL;
         this.camOffset.x = this.mouse.x*this.camOffset.senstivity;
         this.camOffset.y = this.mouse.y*this.camOffset.senstivity;
-        this.camera.position.x = camPath[lL][0]*uF+camPath[uL][0]*lF+this.camOffset.x;
-        this.camera.position.y = camPath[lL][1]*uF+camPath[uL][1]*lF+this.camOffset.y;
+        
+        let dpx = camPath[lL][0]*uF+camPath[uL][0]*lF+this.camOffset.x - this.camera.position.x;
+        let dpy = camPath[lL][1]*uF+camPath[uL][1]*lF+this.camOffset.y - this.camera.position.y;
+
+        this.camera.position.x += dpx*this.camOffset.ipFactor;
+        //this.camera.position.y += dpy*this.camOffset.ipFactor;
+        this.camera.position.y = camPath[lL][1]*uF+camPath[uL][1]*lF;
         this.camera.position.z = camPath[lL][2]*uF+camPath[uL][2]*lF;
-        this.camera.rotation.x = camPath[lL][3]*uF+camPath[uL][3]*lF+this.camOffset.y;
-        this.camera.rotation.y = camPath[lL][4]*uF+camPath[uL][4]*lF-this.camOffset.x;
+
+        let drx = camPath[lL][3]*uF+camPath[uL][3]*lF+this.camOffset.y - this.camera.rotation.x;
+        let dry =camPath[lL][4]*uF+camPath[uL][4]*lF-this.camOffset.x - this.camera.rotation.y;
+        this.camera.rotation.x += drx*this.camOffset.ipFactor;
+        this.camera.rotation.y += dry*this.camOffset.ipFactor;
+        
         this.camera.rotation.z = camPath[lL][5]*uF+camPath[uL][5]*lF;
     }
 
@@ -287,6 +296,7 @@ function renderer(meshArr,staticMesh){
         for(let i = 0 ; i < staticMesh.length; ++i){
             if(staticMesh[i].updateAction != undefined)staticMesh[i].updateAction(this.mouse,this.camOffset);
         }
+        this.updateCamPos();
         this.renderer.render( this.scene, this.camera );
     };
     this.animate();
@@ -296,13 +306,14 @@ function renderer(meshArr,staticMesh){
     this.updateMousePos = (e)=>{
         this.mouse.x = ( e.clientX / window.innerWidth ) * 2 - 1;
         this.mouse.y = -( e.clientY / window.innerHeight ) * 2 + 1;
-        this.updateCamPos();
+        // this.updateCamPos();
     }
 
     this.updateTouchPos = (e)=>{
         let lastTouch =e.changedTouches[e.changedTouches.length-1];
-        this.mouse.x = ( lastTouch.pageX / window.innerWidth ) * 2 - 1
-        this.updateCamPos();
+        this.mouse.x = ( lastTouch.pageX / window.innerWidth ) * 2 - 1;
+        this.mouse.y = -( lastTouch.pageY / window.innerHeight ) * 2 + 1;
+        // this.updateCamPos();
     }
     window.addEventListener( 'mousemove', this.updateMousePos, false );
     window.addEventListener('touchmove',this.updateTouchPos,false);
@@ -325,7 +336,7 @@ function renderer(meshArr,staticMesh){
         }
         
         this.updateNavEle();
-        this.updateCamPos();
+        // this.updateCamPos();
     });
 
     this.updateCamPos();
