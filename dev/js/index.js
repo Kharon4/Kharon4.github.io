@@ -282,8 +282,8 @@ function renderer(meshArr,staticMesh){
         sec = Math.round(sec);
         if(sec >= navElements.length)sec=navElements.length-1;
         for(let i = 0 ; i < navElements.length ; ++i)navElements[i].classList.remove('hlMItem');
-        navElements[navElements.length-1-sec].classList.add('hlMItem');
-        navContentDom.innerHTML = navElements[navElements.length-1-sec].getElementsByTagName('span')[0].innerText;
+        navElements[sec].classList.add('hlMItem');
+        navContentDom.innerHTML = navElements[sec].getElementsByTagName('span')[0].innerText;
         navContentDom.innerHTML += ' &#9776;';
     }
 

@@ -123,6 +123,8 @@ nav{
   padding: 0px 8px;
   box-sizing: border-box;
   width: calc(100% - 1.5*var(--iconWP));
+  font-weight: bold;
+  cursor: pointer;
   display:none;
 }
 
@@ -174,7 +176,8 @@ ul{
   list-style-type: none;
   display: inline-flex;
   flex-wrap: wrap;
-  flex-direction: row-reverse;
+  justify-content: flex-end;
+  /* flex-direction: row-reverse; */
 }
 
 li{
@@ -246,7 +249,7 @@ input[type=text] {
   border: none;
   border-bottom: 2px solid lightgrey;
   color:var(--col);
-  width:60%;
+  width:80%;
   transition: width 0.4s ease-in-out;
 }
 
